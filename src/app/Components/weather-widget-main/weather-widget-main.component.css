@@ -1,0 +1,50 @@
+#divWeatherMain{
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(26,15,46,1) 58%, rgba(51,99,247,1) 100%);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#divWeatherMainDay{
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background: rgb(149,187,254);
+    background: linear-gradient(180deg, rgba(149,187,254,1) 0%, rgba(141,182,254,1) 50%, rgba(236,216,180,1) 100%);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.weatherWidgetRow{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+body{
+    margin: 0px;
+}
+
+#icons{
+text-align: center;
+flex: 1;
+margin: 0;
+padding: 0;
+border: 0;
+}
+#icons2{
+    text-align: center;
+    flex: 2;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    }
+
+#alado{
+    margin-left: 29%;
+    display: inline-flex;
+    width: 50%;
+}
