@@ -3,7 +3,7 @@
     </head>
     
 <div id="divWeatherMain">
-    <div class="search-box" (submit)="onSubmit">
+    <div class="search-box" (submit)="onSubmit()">
         <form #form="ngForm" >
         <button class="btn-search"><i class="fa fa-search"></i></button>
         <input type="text" class="input-search" placeholder="Pra onde vamos?" name="city" [(ngModel)]="cityName">
