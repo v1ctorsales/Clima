@@ -49,7 +49,9 @@ export class WeatherWidgetMainComponent implements OnInit {
     this.WeatherData.sunset_time = sunsetTime.toLocaleTimeString();
 
     let currentDate = new Date();
-    this.WeatherData.isDay = (currentDate.getTime() < sunsetTime.getTime());
+    this.WeatherData.isDay = (currentDate.getTime() < sunsetTime.getTime() && currentDate.getTime() > sunsetRise.getTime());
+    console.log(currentDate.getTime())
+    console.log('sunset: '+sunsetTime.getTime())
     this.WeatherData.temp_celcius = (this.WeatherData.main.temp - 273.15).toFixed(0);
     this.WeatherData.temp_min = (this.WeatherData.main.temp_min - 273.15).toFixed(0);
     this.WeatherData.temp_max = (this.WeatherData.main.temp_max - 273.15).toFixed(0);
