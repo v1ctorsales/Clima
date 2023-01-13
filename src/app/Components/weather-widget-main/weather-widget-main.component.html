@@ -1,3 +1,4 @@
+<div class="hora" *ngIf="!WeatherData.isDay">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
@@ -13,28 +14,113 @@
         <img src="https://i.pinimg.com/originals/a5/38/8c/a5388cf7c3411dfebf0e1530ea4f6445.png" style="width: 8%; margin-left: 25%;">
     </div>
     <div *ngIf="!WeatherData.isDay" class="divWeatherMainDay">
-        <img src="https://www.pngfind.com/pngs/b/603-6033801_ftestickers-sky-moon-glowing-blackandwhite-fantasy-png-transparent.png" style="width: 10%; margin-left: 25%;">
+        <img src="https://64.media.tumblr.com/5bf292899bd2a44ffefe7536f176e813/tumblr_n1j40e7Zhm1s5jjtzo1_500.gif" style="width: 12%; margin-left: 25%;">
     </div>
 
     
 
-
-    <div class="weatherWidgetRow" style="font-size: 38px; margin-top: 5px;">{{WeatherData.temp_celcius}}º</div>
+    <div class="container">
+        <div class="containercima">
+    <div class="weatherWidgetRow" style="font-size: 38px; margin-top: 10px;">{{WeatherData.temp_celcius}}º</div>
     <div class="weatherWidgetRow" style="font-size: 12px;">min. {{WeatherData.temp_min}}º / max. {{WeatherData.temp_max}}º</div>
     <div class="weatherWidgetRow" style="font-size: 38px; margin-top: 10px;">{{WeatherData.name}}, {{WeatherData.sys.country}}</div>
-<div id="alado">
-    <div id="icons">
-        <img src="https://cdn-icons-png.flaticon.com/512/6393/6393411.png" style="width: 82%;">
-        <div class="weatherWidgetRow" style="font-size: 18px;">{{WeatherData.main.humidity}}%</div>
-    </div>
+</div>
+<div class="containerbaixo">
 
-    <div id="icons2">
-        <img src="https://cdn-icons-png.flaticon.com/512/191/191055.png" style="width: 90%; margin-left: 14px;">
-        <div class="weatherWidgetRow" style="font-size: 18px; text-align: center;">{{WeatherData.wind.speed}}km/h</div>
-    </div>
-    <div id="icons2">
-        <img src="https://cdn-icons-png.flaticon.com/512/2838/2838590.png" style="width: 70%;">
-        <div class="time" style="font-size: 18px; display: inline-block;">{{currenttime | date:"HH:mm"}}h</div>
+    <table style="width:100%">
+        <tr>
+            <td id="icon">{{WeatherData.weather[0].icon}}<img src="" style="width: 100%;"></td>
+          <th>Clima:</th>
+          <td id="resultado"><div class="weatherWidgetRow" style="font-size: 18px;">{{WeatherData.weather[0].description}}</div></td>
+        </tr>
+        <tr>
+            <td id="icon"><img src="https://cdn-icons-png.flaticon.com/512/2838/2838590.png" style="width: 80%;"></td>
+          <th>Horário Local:</th>
+          <td id="resultado"><div class="time" style="font-size: 18px;">{{currenttime | date:"HH:mm"}}h</div></td>
+        </tr>
+        <tr>
+            <td id="icon"><img src="https://cdn-icons-png.flaticon.com/512/191/191055.png" style="width: 100%;"></td>
+          <th>Vento:</th>
+          <td id="resultado"><div class="weatherWidgetRow" style="font-size: 18px;">{{WeatherData.wind.speed}}km/h</div></td>
+        </tr>
+        <tr>
+            <td id="icon"> <img src="https://cdn-icons-png.flaticon.com/512/6393/6393411.png" style="width: 100%;"></td>
+            <th>Umidade:</th>
+            <td id="resultado"><div class="weatherWidgetRow" style="font-size: 18px;">{{WeatherData.main.humidity}}%</div></td>
+          </tr>
+      </table>
+    <div id="alado">
+    <div id="icons">
+        
+        
     </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+
+<div class="hora" *ngIf="WeatherData.isDay">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        </head>
+        
+    <div id="divWeatherMainDay">
+        <div class="search-box" (submit)="onSubmit()">
+            <form #form="ngForm" >
+            <button class="btn-search"><i class="fa fa-search"></i></button>
+            <input type="text" class="input-search" placeholder="Pra onde vamos?" name="city" [(ngModel)]="cityName">
+        </form>
+          </div>
+        <div *ngIf="WeatherData.isDay" class="divWeatherMain">
+            <img src="https://images.squarespace-cdn.com/content/v1/5b8f49d4a9e028c8b3db1aac/1596070464320-U3NEBWQB919GYTL2FP2G/Sun-Gif-01.gif" style="width: 7%; margin-left: 25%; margin-bottom: 5%;">
+        </div>
+        <div *ngIf="!WeatherData.isDay" class="divWeatherMainDay">
+            <img src="https://www.pngfind.com/pngs/b/603-6033801_ftestickers-sky-moon-glowing-blackandwhite-fantasy-png-transparent.png" style="width: 15%; margin-left: 25%;">
+        </div>
+    
+        
+    
+        <div class="container">
+            <div class="containercima">
+        <div class="weatherWidgetRow" style="font-size: 38px; margin-top: 10px;">{{WeatherData.temp_celcius}}º</div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">min. {{WeatherData.temp_min}}º / max. {{WeatherData.temp_max}}º</div>
+        <div class="weatherWidgetRow" style="font-size: 38px; margin-top: 10px;">{{WeatherData.name}}, {{WeatherData.sys.country}}</div>
+    </div>
+    <div class="containerbaixo">
+    
+        <table style="width:100%">
+            <tr>
+                <td id="icon"><img src="" style="width: 100%;"></td>
+              <th>Clima:</th>
+              <td id="resultado"><div class="weatherWidgetRow" style="font-size: 18px;">{{WeatherData.weather.description}}</div></td>
+            </tr>
+            <tr>
+                <td id="icon"><img src="https://cdn-icons-png.flaticon.com/512/2838/2838590.png" style="width: 80%;"></td>
+              <th>Horário Local:</th>
+              <td id="resultado"><div class="time" style="font-size: 18px;">{{currenttime | date:"HH:mm"}}h</div></td>
+            </tr>
+            <tr>
+                <td id="icon"><img src="https://cdn-icons-png.flaticon.com/512/191/191055.png" style="width: 100%;"></td>
+              <th>Vento:</th>
+              <td id="resultado"><div class="weatherWidgetRow" style="font-size: 18px;">{{WeatherData.wind.speed}}km/h</div></td>
+            </tr>
+            <tr>
+                <td id="icon"> <img src="https://cdn-icons-png.flaticon.com/512/6393/6393411.png" style="width: 100%;"></td>
+                <th>Umidade:</th>
+                <td id="resultado"><div class="weatherWidgetRow" style="font-size: 18px;">{{WeatherData.main.humidity}}%</div></td>
+              </tr>
+          </table>
+        <div id="alado">
+        <div id="icons">
+            
+            
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+<footer id="footer">Clima.vapp • Desenvolvido por 
+    <a href="http://victorsales.com.br" target="_blank">Victor Sales</a>
+</footer>

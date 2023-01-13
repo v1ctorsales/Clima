@@ -25,30 +25,35 @@ export class WeatherWidgetMainComponent implements OnInit {
   }
 
   private getWeatherData(cityName: string){//cityName: string
-    let url = ('https://api.openweathermap.org/data/2.5/weather?q='+cityName+'&appid=01661b82dd64746b6ac02bf1fdebd38a')
+    let url = ('https://api.openweathermap.org/data/2.5/weather?q='+cityName+'&lang=pt&appid=01661b82dd64746b6ac02bf1fdebd38a')
 
   fetch(url)
   .then(res => res.json())
   .then(out =>
     this.setWeatherData(out))
   .catch(err => { throw err })
-  
   ;
 
   }
 
   setWeatherData(url: any){
     this.WeatherData = url;
-    let country = new Date(this.WeatherData.sys.country);
+    let country =(this.WeatherData.sys.country);
+    let icone =(this.WeatherData.weather[0].icon);
+    let description =(this.WeatherData.weather[0].description);
+
     let sunsetRise = new Date(this.WeatherData.sys.sunrise * 1000);
+
     this.WeatherData.sunrise_time = sunsetRise.toLocaleTimeString();
     let sunsetTime = new Date(this.WeatherData.sys.sunset * 1000);
     this.WeatherData.sunset_time = sunsetTime.toLocaleTimeString();
+
     let currentDate = new Date();
     this.WeatherData.isDay = (currentDate.getTime() < sunsetTime.getTime());
     this.WeatherData.temp_celcius = (this.WeatherData.main.temp - 273.15).toFixed(0);
     this.WeatherData.temp_min = (this.WeatherData.main.temp_min - 273.15).toFixed(0);
     this.WeatherData.temp_max = (this.WeatherData.main.temp_max - 273.15).toFixed(0);
     this.WeatherData.temp_feels_like = (this.WeatherData.main.feels_like - 273.15).toFixed(0);
+
   }
 }

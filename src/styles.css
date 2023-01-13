@@ -23,3 +23,61 @@ body{
     width: 50%;
 }
 
+#footer {
+    align-items: center;
+    background-color: #161616;
+    bottom: 0;
+    color: #c2c2c2;
+    font-family: Times New Roman,Times,serif;
+    font-size: 16px;
+    height: 2.1%;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.container{
+    margin: auto;
+    display: block;
+    width: 20%;
+    height: fit-content;
+    background-color: rgb(37, 37, 37);
+    border-radius: 25px;
+}
+
+.containercima{
+    padding-top: 10px;
+}
+.containerbaixo{
+    padding-top: 50px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #2e2e2e;
+  }
+
+  #icon{
+    width: 15%;
+  }
+
+  #resultado{
+    text-align: center;
+  }
+  element.style {
+    font-size: 18px;
+    text-align: center;
+}
