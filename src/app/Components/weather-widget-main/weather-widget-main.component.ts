@@ -8,8 +8,10 @@ import * as moment from 'moment';
 })
 export class WeatherWidgetMainComponent implements OnInit {
   WeatherData:any;
-  currenttime = new Date();
+  WeatherIcon:any;
+  tempoagora = new Date();
   cityName: string = 'Contagem';
+  cityIcon: string = '04n';
   constructor() {}
 
   ngOnInit() {
@@ -24,7 +26,7 @@ export class WeatherWidgetMainComponent implements OnInit {
 
   }
 
-  private getWeatherData(cityName: string){//cityName: string
+  private getWeatherData(cityName: string){
     let url = ('https://api.openweathermap.org/data/2.5/weather?q='+cityName+'&lang=pt&appid=01661b82dd64746b6ac02bf1fdebd38a')
 
   fetch(url)
@@ -35,6 +37,7 @@ export class WeatherWidgetMainComponent implements OnInit {
   ;
 
   }
+
 
   setWeatherData(url: any){
     this.WeatherData = url;
@@ -48,6 +51,7 @@ export class WeatherWidgetMainComponent implements OnInit {
     let sunsetTime = new Date(this.WeatherData.sys.sunset * 1000);
     this.WeatherData.sunset_time = sunsetTime.toLocaleTimeString();
 
+
     let currentDate = new Date();
     this.WeatherData.isDay = (currentDate.getTime() < sunsetTime.getTime() && currentDate.getTime() > sunsetRise.getTime());
     console.log(currentDate.getTime())
@@ -57,5 +61,29 @@ export class WeatherWidgetMainComponent implements OnInit {
     this.WeatherData.temp_max = (this.WeatherData.main.temp_max - 273.15).toFixed(0);
     this.WeatherData.temp_feels_like = (this.WeatherData.main.feels_like - 273.15).toFixed(0);
 
+    let timezone = (this.WeatherData.timezone);
+
+    this.tempoagora = (currentDate.getTime() + timezone);
+
+    this.WeatherData.tempoagora ;
+    
+
+  }
+
+  private getWeatherIcon(cityIcon: string){
+    let url = ('http://openweathermap.org/img/wn/'+cityIcon+'@2x.png')
+
+  fetch(url)
+  .then(res => res.json())
+  .then(out =>
+    this.setWeatherIcon(out))
+  .catch(err => { throw err })
+  ;
+
+  }
+
+  setWeatherIcon(icone: any){
+    this.WeatherIcon = icone;
+    console.log(icone)
   }
 }

@@ -37,6 +37,16 @@ body{
     display: block;
 }
 
+a{
+  font-style: none;
+  text-decoration: none;
+  color: #c2c2c2;
+}
+a:hover{
+  font-size: 16.1px;
+  color: #f7f7f7;
+}
+
 .container{
     margin: auto;
     display: block;

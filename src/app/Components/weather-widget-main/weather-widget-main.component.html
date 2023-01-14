@@ -1,7 +1,6 @@
 <div class="hora" *ngIf="!WeatherData.isDay">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     </head>
     
 <div id="divWeatherMain">
@@ -37,7 +36,7 @@
         <tr>
             <td id="icon"><img src="https://cdn-icons-png.flaticon.com/512/2838/2838590.png" style="width: 80%;margin-left: 4px;"></td>
           <th>Horário Local:</th>
-          <td id="resultado"><div class="time" style="font-size: 18px;">{{currenttime | date:"HH:mm"}}h</div></td>
+          <td id="resultado"><div class="time" style="font-size: 18px;">{{tempoagora | date:"HH:mm"}}h</div></td>
         </tr>
         <tr>
             <td id="icon"><img src="https://cdn-icons-png.flaticon.com/512/191/191055.png" style="width: 100%;"></td>
@@ -100,7 +99,7 @@
             <tr>
                 <td id="icon"><img src="https://cdn-icons-png.flaticon.com/512/2838/2838590.png" style="width: 80%;"></td>
               <th>Horário Local:</th>
-              <td id="resultado"><div class="time" style="font-size: 18px;">{{currenttime | date:"HH:mm"}}h</div></td>
+              <td id="resultado"><div class="time" style="font-size: 18px;">{{this.tempoagora | date:"HH:mm"}}h</div></td>
             </tr>
             <tr>
                 <td id="icon"><img src="https://cdn-icons-png.flaticon.com/512/191/191055.png" style="width: 100%;"></td>
