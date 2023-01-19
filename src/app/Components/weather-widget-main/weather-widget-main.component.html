@@ -92,14 +92,14 @@
     
         <table style="width:100%">
             <tr>
-                <td id="icon"><img src="" style="width: 100%;"></td>
+                <td id="icon">{{WeatherData.weather[0].icon}}<img src="" style="width: 100%;"></td>
               <th>Clima:</th>
-              <td id="resultado"><div class="weatherWidgetRow" style="font-size: 18px;">{{WeatherData.weather.description}}</div></td>
+              <td id="resultado"><div class="weatherWidgetRow" id ="um"style="font-size: 18px; ">{{WeatherData.weather[0].description}}</div></td>
             </tr>
             <tr>
-                <td id="icon"><img src="https://cdn-icons-png.flaticon.com/512/2838/2838590.png" style="width: 80%;"></td>
+                <td id="icon"><img src="https://cdn-icons-png.flaticon.com/512/2838/2838590.png" style="width: 80%;margin-left: 4px;"></td>
               <th>Horário Local:</th>
-              <td id="resultado"><div class="time" style="font-size: 18px;">{{this.tempoagora | date:"HH:mm"}}h</div></td>
+              <td id="resultado"><div class="time" style="font-size: 18px;">{{tempoagora | date:"HH:mm"}}h</div></td>
             </tr>
             <tr>
                 <td id="icon"><img src="https://cdn-icons-png.flaticon.com/512/191/191055.png" style="width: 100%;"></td>
@@ -123,5 +123,5 @@
     </div>
     </div>
 <footer id="footer">Clima.vapp • Desenvolvido por 
-    <a href="http://victorsales.com.br" target="_blank">Victor Sales</a>
+    <a href="http://victorsales.com.br" target="_blank">Victor Sales</a>.
 </footer>
