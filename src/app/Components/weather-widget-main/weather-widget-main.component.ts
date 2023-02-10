@@ -9,7 +9,9 @@ import * as moment from 'moment';
 export class WeatherWidgetMainComponent implements OnInit {
   WeatherData:any;
   WeatherIcon:any;
-  tempoagora = new Date();
+  //tempoagora = new Date();
+  tempoagora = new Date()//.getTime() / 1000;
+
   cityName: string = 'Contagem';
   cityIcon: string = '04n';
   constructor() {}
@@ -51,10 +53,9 @@ export class WeatherWidgetMainComponent implements OnInit {
     let sunsetTime = new Date(this.WeatherData.sys.sunset * 1000);
     this.WeatherData.sunset_time = sunsetTime.toLocaleTimeString();
 
-
     let currentDate = new Date();
     this.WeatherData.isDay = (currentDate.getTime() < sunsetTime.getTime() && currentDate.getTime() > sunsetRise.getTime());
-    console.log(currentDate.getTime())
+
     console.log('sunset: '+sunsetTime.getTime())
     this.WeatherData.temp_celcius = (this.WeatherData.main.temp - 273.15).toFixed(0);
     this.WeatherData.temp_min = (this.WeatherData.main.temp_min - 273.15).toFixed(0);
@@ -62,13 +63,12 @@ export class WeatherWidgetMainComponent implements OnInit {
     this.WeatherData.temp_feels_like = (this.WeatherData.main.feels_like - 273.15).toFixed(0);
 
     let timezone = (this.WeatherData.timezone);
+    this.WeatherData.currentDate ;
 
-    this.tempoagora = (currentDate.getTime() + timezone);
-
-    this.WeatherData.tempoagora ;
+    return(currentDate);
     
-
   }
+
 
   private getWeatherIcon(cityIcon: string){
     let url = ('http://openweathermap.org/img/wn/'+cityIcon+'@2x.png')
