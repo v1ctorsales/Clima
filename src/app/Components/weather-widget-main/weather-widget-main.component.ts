@@ -9,7 +9,6 @@ export class WeatherWidgetMainComponent implements OnInit {
   WeatherData:any;
   WeatherIcon:any;
   //tempoagora = new Date();
-  tempoagora = new Date().getTime() + 10800000  ;
 
   cityName: string = 'Contagem';
   cityIcon: string = '04n';
@@ -27,7 +26,6 @@ export class WeatherWidgetMainComponent implements OnInit {
 
   }
 
-  
 
 
   private getWeatherData(cityName: string){
@@ -42,7 +40,11 @@ export class WeatherWidgetMainComponent implements OnInit {
 
   }
 
+
   setWeatherData(url: any){
+
+    let tempoagora = new Date().getTime() + 10800000;
+    
     this.WeatherData = url;
     let country =(this.WeatherData.sys.country);
     let icone =(this.WeatherData.weather[0].icon);
@@ -70,20 +72,25 @@ export class WeatherWidgetMainComponent implements OnInit {
     let cityIcon = this.WeatherData.weather[0].icon;
     this.WeatherData.urlicon = ('http://openweathermap.org/img/wn/'+cityIcon+'@2x.png')
 
+    //console.log(this.tempoagora)
+    //console.log(this.WeatherData.timezone)
 
+    this.tempoagora = this.tempoagora
 
-    console.log(this.tempoagora)
-    console.log(this.WeatherData.timezone *1000)
+    let newtime = this.tempoagora + (this.WeatherData.timezone * 1000)
+    
+    this.WeatherData.temponovo = newtime;
 
-    this.tempoagora = this.tempoagora + timezone
-
+    console.log(this.WeatherData.temponovo)
     console.log(this.tempoagora)
 
     return(this.WeatherData.timezone);
     
-
+    
 
   }
+
+  tempoagora = new Date().getTime() + 10800000; //pra transormar em horario do fuso 0
 
 
   private getWeatherIcon(cityIcon: string){
