@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-weather-widget-main',
@@ -10,7 +9,7 @@ export class WeatherWidgetMainComponent implements OnInit {
   WeatherData:any;
   WeatherIcon:any;
   //tempoagora = new Date();
-  tempoagora = new Date()//.getTime() / 1000;
+  tempoagora = new Date().getTime() + 10800000  ;
 
   cityName: string = 'Contagem';
   cityIcon: string = '04n';
@@ -28,6 +27,9 @@ export class WeatherWidgetMainComponent implements OnInit {
 
   }
 
+  
+
+
   private getWeatherData(cityName: string){
     let url = ('https://api.openweathermap.org/data/2.5/weather?q='+cityName+'&lang=pt&appid=01661b82dd64746b6ac02bf1fdebd38a')
 
@@ -39,7 +41,6 @@ export class WeatherWidgetMainComponent implements OnInit {
   ;
 
   }
-
 
   setWeatherData(url: any){
     this.WeatherData = url;
@@ -56,7 +57,7 @@ export class WeatherWidgetMainComponent implements OnInit {
     let currentDate = new Date();
     this.WeatherData.isDay = (currentDate.getTime() < sunsetTime.getTime() && currentDate.getTime() > sunsetRise.getTime());
 
-    console.log('sunset: '+sunsetTime.getTime())
+    //console.log('sunset: '+sunsetTime.getTime())
     this.WeatherData.temp_celcius = (this.WeatherData.main.temp - 273.15).toFixed(0);
     this.WeatherData.temp_min = (this.WeatherData.main.temp_min - 273.15).toFixed(0);
     this.WeatherData.temp_max = (this.WeatherData.main.temp_max - 273.15).toFixed(0);
@@ -65,8 +66,23 @@ export class WeatherWidgetMainComponent implements OnInit {
     let timezone = (this.WeatherData.timezone);
     this.WeatherData.currentDate ;
 
-    return(currentDate);
     
+    let cityIcon = this.WeatherData.weather[0].icon;
+    this.WeatherData.urlicon = ('http://openweathermap.org/img/wn/'+cityIcon+'@2x.png')
+
+
+
+    console.log(this.tempoagora)
+    console.log(this.WeatherData.timezone *1000)
+
+    this.tempoagora = this.tempoagora + timezone
+
+    console.log(this.tempoagora)
+
+    return(this.WeatherData.timezone);
+    
+
+
   }
 
 
@@ -77,7 +93,7 @@ export class WeatherWidgetMainComponent implements OnInit {
   .then(res => res.json())
   .then(out =>
     this.setWeatherIcon(out))
-  .catch(err => { throw err })
+  .catch(err => { console.log("deubigode") })
   ;
 
   }
