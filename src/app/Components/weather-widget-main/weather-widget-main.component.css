@@ -22,6 +22,11 @@
   background: linear-gradient(180deg, rgba(22,21,42,1) 0%, rgba(32,21,125,1) 100%);
 }
 
+.divNublado{
+  background: rgb(186,186,186);
+  background: linear-gradient(180deg, rgba(186,186,186,1) 36%, rgba(218,218,218,0.8337710084033614) 100%);
+}
+
 #divWeatherMainDay{
     display: block;
     color: white;
