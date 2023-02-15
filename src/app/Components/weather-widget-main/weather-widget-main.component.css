@@ -374,7 +374,7 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 48%, rgba(230,254,247,1)
     background: #fff;
 	content: '';
 	position: absolute;
-	z-indeX: 3;
+	z-index: 3;
 }
 
 .cloud:after {
