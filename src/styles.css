@@ -61,6 +61,7 @@ a:hover{
 
 .containercima{
     padding-top: 10px;
+    margin-top: 8rem;
 }
 .containerbaixo{
     padding-top: 50px;
@@ -106,7 +107,6 @@ table {
 .intro,
 .intro a{
   color:#fff;
-  font-family:
 }
 
 .snowflake {
