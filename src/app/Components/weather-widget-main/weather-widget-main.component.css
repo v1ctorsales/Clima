@@ -167,6 +167,41 @@ margin-left: 5px;
     align-items: center;
     justify-content: center;
   }
+
+  .trovao::before{
+    content: "";
+    position: fixed;
+    width: 600px;
+    background-image: url('https://pro2-bar-s3-cdn-cf6.myportfolio.com/5315a2c5-008a-4994-83ef-04a48b502771/7a591850-fc83-4d25-85e5-88002b98287b_rw_1200.gif?h=106333a4aebec978775e1290c6e77bcf');
+    background-repeat: no-repeat; 
+    animation: trovao 4s linear infinite;
+    opacity: 1;
+   height:2000px;
+   left: 60%;
+
+  }
+
+  @keyframes trovao{
+    0%{
+      opacity: 0;
+    }
+    50%{
+      opacity: 1;
+    }
+    51%{
+      opacity: 0;
+    }
+    94%{
+      opacity: 0;
+    }
+    98%{
+      opacity: 1;
+    }
+    99%{
+    opacity: 0;
+    }
+  }
+
   .rain__drop {
     animation-delay: calc(var(--d) * 1s);
     animation-duration: calc(var(--a) * 1s);
@@ -363,4 +398,15 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 48%, rgba(230,254,247,1)
 	right: 50px;
 	top: -90px;
 }
-  
+
+@media (max-width:1350px){
+  .container{
+    width: 30%;
+  }
+  }
+
+@media (max-width:1150px){
+.container{
+  width: 45%;
+}
+}
