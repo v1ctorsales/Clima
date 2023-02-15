@@ -35,7 +35,7 @@ export class WeatherWidgetMainComponent implements OnInit {
   .then(res => res.json())
   .then(out =>
     this.setWeatherData(out))
-  .catch(err => { throw err })
+  .catch(err => { this.setDataErro() })
   ;
 
   }
@@ -84,10 +84,16 @@ export class WeatherWidgetMainComponent implements OnInit {
     console.log(this.WeatherData.temponovo)
     console.log(this.tempoagora)
 
-    return(this.WeatherData.timezone);
+    let oldcity = this.WeatherData
+
+    return(this.WeatherData.timezone, this.WeatherData);
     
     
 
+  }
+
+  setDataErro(){
+    alert("Local não encontrado.");
   }
 
   tempoagora = new Date().getTime() + 10800000; //pra transormar em horario do fuso 0

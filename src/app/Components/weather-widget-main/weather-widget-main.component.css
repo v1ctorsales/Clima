@@ -405,14 +405,17 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 48%, rgba(230,254,247,1)
   }
   }
 
-@media (max-width:1150px){
+@media (max-width:1100px){
 .container{
   width: 45%;
 }
 }
 
-@media (max-width:550px){
+@media (max-width:590px){
   .container{
     width: 55%;
+  }
+  .trovao::before{
+    left: 50%;
   }
   }
